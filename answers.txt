@@ -1,0 +1,18 @@
+extraLargeArray
+    insert 1.2670124 s
+    append 4.7502 ms
+largerArray
+    insert 12.0175 ms
+    append 717.9 μs
+mediumArray
+    insert 270.9 μs
+    append 199.7 μs
+smallArray
+    insert 78.3 μs
+    append 187.3 μs
+tinyArray
+    insert 59.7 μs
+    append 129.2 μs
+
+Though performing nearly identical fuctions, .push() scales far better than the .unshift() and that becomes clearer the longer the array is. At shorter lengthts, unshift comes out slightly faster, whcih I cannot explain, but the difference is only a 100μs or so. As the array gets longer the append functions efficency and improved runtime shows as it finishes its processes nearly a full second before the insert function. This is likely because appending to an array only involves adding a new value to the end and assigning its index value. However, if you are to insert into the beginning of an array, not only are you adding in a new vlaue but oyu are also shifting every index of ever item in that array over. Though this may not be muhc of a problem when dealing with an array of only 10 or even 100 items, it becomes a pretty time consuming problem with arrays 1000000 items long.
+
